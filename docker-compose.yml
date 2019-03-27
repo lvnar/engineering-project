@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  thoron:
+    container_name: thoron
+    image: python:3.7-alpine
+    build:
+      context: ./Thoron
+    volumes:
+      - ./Thoron:/app/src
+    networks:
+      local:
+        ipv4_address: 10.0.0.2
