@@ -3,11 +3,27 @@ version: '3'
 services:
   thoron:
     container_name: thoron
-    image: python:3.7-alpine
+    image: thoron:alpine
     build:
       context: ./Thoron
+    environment:
+      DATABASE_URL: postgres://app_user:p455w0rd@meneldor/thorondor
+      #REDIS_URL: redis://redis
     volumes:
       - ./Thoron:/app/src
-    networks:
-      local:
-        ipv4_address: 10.0.0.2
+    ports:
+      - "8000:8000"
+    tty: true
+
+  meneldor:
+    container_name: meneldor
+    image: postgres:11.2-alpine
+    environment:
+      POSTGRES_DB: thorondor
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: p455w0rd
+    volumes:
+      - "./Meneldor/postgres-data:/var/lib/postgresql/data"
+    ports:
+      - "5000:5432"
+    restart: always
