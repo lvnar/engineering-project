@@ -3,4 +3,5 @@ from rest_framework import routers
 
 urlpatterns = (
     path('users/', include('thoron.users.urls')),
+    path('vehicles/', include('thoron.vehicles.urls')),
 )
