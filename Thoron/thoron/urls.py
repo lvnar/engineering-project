@@ -1,7 +1,11 @@
-from django.urls import include, path
 from rest_framework import routers
 
-urlpatterns = (
-    path('users/', include('thoron.users.urls')),
-    path('vehicles/', include('thoron.vehicles.urls')),
-)
+from thoron.vehicles.views import VehicleViewSet
+from thoron.users.views import UserViewSet
+
+
+router = routers.SimpleRouter()
+router.register(r'users', UserViewSet)
+router.register(r'vehicles', VehicleViewSet)
+
+urlpatterns = router.urls

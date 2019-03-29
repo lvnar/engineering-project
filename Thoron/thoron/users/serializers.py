@@ -3,9 +3,15 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
+
+    password = serializers.CharField(
+        max_length=255,
+        write_only=True
+    )
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'password')
+        fields = ('id', 'username', 'password', 'date_joined')
 
     def create(self, validated_data):
         password = validated_data.pop('password', '')

@@ -7,5 +7,5 @@ class VehicleViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows vehicles to be viewed or edited.
     """
-    queryset = Vehicle.objects.all().order_by('id')
+    queryset = Vehicle.objects.all().order_by('number_plate')
     serializer_class = VehicleSerializer

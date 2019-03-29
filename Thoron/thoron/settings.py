@@ -54,6 +54,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'thoron.urls'
 
+REST_FRAMEWORK = {
+    #'DEFAULT_AUTHENTICATION_CLASSES': ('geb.oauth.backends.BearerAuthentication',),
+    'EXCEPTION_HANDLER': 'thoron.handler.custom_handler'
+}
+
+APPEND_SLASH = False
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
