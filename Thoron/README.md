@@ -1,19 +1,20 @@
 # Thoron
-Engineering Project
+API Project
 
-## Aplicación de Rastreo
+## Descripción
 
-El objetivo es construir una applicación web donde se administre una flotilla de vehiculos y se pueda ver su posición.
-Cada vehiculo tiene los siguientes datos:
+Aplicación de rastreo. Servicios REST donde se administra una flotilla de
+vehículos y es posible obtener su posición.
 
-1. Id de Vehiculo
+Cada vehículo tiene los siguientes datos:
+1. Id de vehículo
 2. Placas
-3. Ultima posición conocida (lat,lon)
+3. Última posición conocida (lat,lon)
 
-## Requerimientos
+## Funcionalidad
 
-1. Construir un API HTTP Rest con  en la que se pueda 
- - Insertar un vehiculo.
- - Actualizar un vehiculo.
- - Borrar cada Vehículo.
-2. El API deben de contar con autenticación de usuario. (Con nombre de usuario y contraseña es suficiente)
+1. API HTTP Rest con la capacidad de:
+ - Insertar un vehículo.
+ - Actualizar un vehículo.
+ - Borrar cada vehículo.
+2. El API cuenta con autenticación de usuario (nombre de usuario y contraseña).

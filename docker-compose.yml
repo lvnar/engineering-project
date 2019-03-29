@@ -11,14 +11,13 @@ services:
       - meneldor
     environment:
       DATABASE_URL: postgres://app_user:p455w0rd@meneldor/thorondor
-      #REDIS_URL: redis://redis
+      #DEBUG: False
     volumes:
       - ./Thoron:/app/src
     ports:
       - "8080:8000"
     entrypoint: ./docker/entrypoint.sh
-    #tty: true
-    #network_mode: host
+    tty: true
 
   meneldor:
     container_name: meneldor
