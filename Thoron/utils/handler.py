@@ -7,7 +7,10 @@ def custom_handler(exc, context):
     response = exception_handler(exc, context)
     if response is not None:
         return Response(
-                "Petición incorrecta o errónea. "
-                "Revise los parámetros e intente de nuevo.",
-                response.status_code)
+            {
+                "status": response.status_code,
+                "message": response.data['detail']
+            },
+            response.status_code
+        )
     return response

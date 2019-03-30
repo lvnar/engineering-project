@@ -1,5 +1,5 @@
+from rest_framework import viewsets, response, status, permissions
 from .models import Vehicle
-from rest_framework import viewsets, response, status
 from .serializers import VehicleSerializer
 
 
@@ -7,6 +7,7 @@ class VehicleViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows vehicles to be viewed or edited.
     """
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Vehicle.objects.all().order_by('-date_joined')
     serializer_class = VehicleSerializer
     filterset_fields = ('is_active', 'owner__id')
