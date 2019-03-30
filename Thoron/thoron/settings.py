@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
     'thoron.users',
     'thoron.vehicles'
 ]
@@ -56,7 +57,8 @@ ROOT_URLCONF = 'thoron.urls'
 
 REST_FRAMEWORK = {
     #'DEFAULT_AUTHENTICATION_CLASSES': ('geb.oauth.backends.BearerAuthentication',),
-    'EXCEPTION_HANDLER': 'thoron.handler.custom_handler'
+    'EXCEPTION_HANDLER': 'utils.handler.custom_handler',
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 APPEND_SLASH = False

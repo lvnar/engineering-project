@@ -14,10 +14,21 @@ class VehicleSerializer(serializers.ModelSerializer):
     owner = serializers.SerializerMethodField(
         read_only=True
     )
+    is_active = serializers.BooleanField(
+        read_only=True
+    )
 
     class Meta:
         model = Vehicle
-        fields = ('id', 'number_plate', 'last_position', 'owner_id', 'owner', 'date_joined')
+        fields = (
+            'id',
+            'number_plate',
+            'last_position',
+            'owner_id',
+            'owner',
+            'is_active',
+            'date_joined'
+        )
     
 
     def validate_last_position(self, value):

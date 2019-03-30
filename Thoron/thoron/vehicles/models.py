@@ -13,7 +13,14 @@ class Vehicle(models.Model):
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    date_joined = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+
+    date_joined = models.DateTimeField('date_joined', auto_now_add=True)
 
     def __str__(self):
         return self.name
+    
+    def destroy(self, request, *args, **kwargs):
+        vehicle = request.vehicle
+        vehicle.is_active = False
+        vehicle.save()
