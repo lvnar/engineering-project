@@ -7,15 +7,8 @@ class VehicleSerializer(serializers.ModelSerializer):
 
     owner_id = serializers.PrimaryKeyRelatedField(
         required=False,
-        write_only=True,
         queryset=User.objects.all(),
         source='owner'
-    )
-    owner = serializers.SerializerMethodField(
-        read_only=True
-    )
-    is_active = serializers.BooleanField(
-        read_only=True
     )
 
     class Meta:
@@ -25,7 +18,6 @@ class VehicleSerializer(serializers.ModelSerializer):
             'number_plate',
             'last_position',
             'owner_id',
-            'owner',
             'is_active',
             'date_joined'
         )
@@ -38,7 +30,26 @@ class VehicleSerializer(serializers.ModelSerializer):
                     'Coordenadas inválidas.'
                 )
         return value
+    
+    def validate_owner(self, value):
+        if value is not None and value.is_active == False:
+            raise serializers.ValidationError(
+                'Propietario inactivo.'
+            )
+        return value
 
-    def get_owner(self, obj):
-        return UserSerializer(obj.owner).data
+    def create(self, validated_data):
+        user = self.context['request'].user
+        if user.is_superuser == False:
+            validated_data['owner'] = user
+        if 'owner' not in validated_data or \
+            validated_data['owner'].is_active == False:
+            raise serializers.ValidationError(
+                'Propietario inactivo o no proporcionado.'
+            )
+        return super().create(validated_data)
+    def update(self, instance, validated_data):
+        if instance.is_active != True:
+            validated_data = {}
+        return super().update(instance, validated_data)
 
