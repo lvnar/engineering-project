@@ -5,8 +5,5 @@ RUN apk update \
         gcc python3-dev postgresql-dev musl-dev \
         && pip install -U pipenv 
 
-# Creating working directory
 RUN mkdir -p /app/src
 WORKDIR /app/src
-
-
