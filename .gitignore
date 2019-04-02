@@ -1,1 +1,4 @@
-Meneldor/postgres-data/*
+**/.env
+**/.vscode/
+**/__pycache__/
+**/postgres-data/*

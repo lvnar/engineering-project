@@ -14,11 +14,10 @@
 
 ## Dependencias
 
+![](https://img.shields.io/badge/alpine-3.9-orange.svg)
+
 ![](https://img.shields.io/badge/python-3.7-darkgreen.svg)
 ![](https://img.shields.io/badge/django-2.1.7-darkgreen.svg)
-
-![](https://img.shields.io/badge/docker-*-blue.svg)
-![](https://img.shields.io/badge/docker--compose-*-blue.svg)
 
 ## Descripción
 

@@ -10,22 +10,21 @@ services:
     depends_on:
       - meneldor
     environment:
-      DATABASE_URL: postgres://app_user:p455w0rd@meneldor/thorondor
-      #DEBUG: False
+      DATABASE_USER: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_HOST: meneldor
+      DATABASE_DB: ${POSTGRES_DB}
     volumes:
       - ./Thoron:/app/src
     ports:
       - "8080:8000"
     entrypoint: ./docker/entrypoint.sh
     tty: true
+    restart: always
 
   meneldor:
     container_name: meneldor
     image: postgres:11.2-alpine
-    environment:
-      POSTGRES_DB: thorondor
-      POSTGRES_USER: app_user
-      POSTGRES_PASSWORD: p455w0rd
     volumes:
       - "./Meneldor/postgres-data:/var/lib/postgresql/data"
     ports:
