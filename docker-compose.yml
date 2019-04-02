@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  thoron:
+    container_name: thoron
+    image: thoron:alpine
+    build:
+      context: ./Thoron
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - meneldor
+    environment:
+      DATABASE_USER: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_HOST: meneldor
+      DATABASE_DB: ${POSTGRES_DB}
+    volumes:
+      - ./Thoron:/app/src
+    ports:
+      - "8080:8000"
+    entrypoint: ./docker/entrypoint.sh
+    tty: true
+    restart: always
+
+  meneldor:
+    container_name: meneldor
+    image: postgres:11.2-alpine
+    volumes:
+      - "./Meneldor/postgres-data:/var/lib/postgresql/data"
+    ports:
+      - "5000:5432"
+    restart: always

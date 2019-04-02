@@ -1,40 +1,72 @@
-# engineering-project
-Engineering Project
+# **Thorondor**
+
+## Contenidos
+
+- [**Thorondor**](#thorondor)
+  - [Contenidos](#contenidos)
+  - [Dependencias](#dependencias)
+  - [Aplicación de Rastreo](#aplicaci%C3%B3n-de-rastreo)
+  - [Deploy](#deploy)
+
+## Dependencias
+
+![1](https://img.shields.io/badge/Thoron-1.0-darkred.svg)
+![3](https://img.shields.io/badge/Meneldor-1.0-darkred.svg)
+
+![](https://img.shields.io/badge/docker-*-blue.svg)
+![](https://img.shields.io/badge/docker--compose-*-blue.svg)
+
 
 ## Aplicación de Rastreo
 
-El objetivo es construir una applicación web donde se administre una flotilla de vehiculos y se pueda ver su posición.
-Cada vehiculo tiene los siguientes datos:
+Aplicación que permite a un grupo de usuarios administrar su correspondiente flotilla de vehículos, es decir, definir sus propiedades, incluida su posición.
 
-1. Id de Vehiculo
-2. Placas
-3. Ultima posición conocida (lat,lon)
+Está dividida en dos componentes principales:
 
-## Requerimientos
+- [**Thoron**](1): REST API que proporciona los servicios necesarios para:
+  - Manejo de sesión.
+  - Administración de usuarios.
+  - Administración de vehículos.
+- [**Meneldor**](3): Base de datos que almacena la información requerida por el sistema
 
-1. Construir un API HTTP Rest con  en la que se pueda 
- - Insertar un vehiculo.
- - Actualizar un vehiculo.
- - Borrar cada Vehículo.
-2. La aplicación web y el API deben de contar con autenticación de usuario. (Con nombre de usuario y contraseña es suficiente)
-3. La Aplicación web debe de contar con una sola vista, en esta vista debe haber un mapa en donde se muestren los vehiculos de cada usuario.
-4. Cada Usuario solo debe de poder interactuar con los vehiculos creados por él mismo.
+## Deploy
 
-## Instrucciones
+1. Crear el archivo `.env` en la raíz del directorio, es decir, en la misma ubicación del archivo `docker-compose.yml`.
+   
+2. Establecer las variables de entorno dentro de dicho archivo, es decir, las variables de la base de datos. Por ejemplo:
+    ```
+    ### Thorondor/.env
+    
+    # Nombre de la base de datos
+    POSTGRES_DB=thorondor
+    
+    # Nombre de usuario
+    POSTGRES_USER=user
+    
+    # Contraseña de usuario
+    POSTGRES_PASSWORD=password
+    ```
 
-1. Crea un repositorio publico en tu cuenta de github.
-2. Proveer instrucciones para instalar y levantar en ambiente local la APP.
-3. Proveer ejemplos con CURL  para Insertar, actualizar y borrar cada vehículo.
+3. En la misma ubicación, junto a `docker-compose.yml`, se inician los contenedores con el siguiente comando:
+   ```
+   $ docker-compose up -d
+   ```
+   **\*Nota**: Para permitir el acceso externo a la base de datos, antes de iniciar los contenedores, es necesario descomentar el par de líneas correspondientes en dicho archivo y establecer el puerto deseado.
 
- - Te recomendamos que uses Flask o Django para hacer tu app. 
- - Bonus points si agregas Unit Tests. 
- - Bonus points si levantas esta API en un servicio como Amazon Web Services o Google Cloud. 
+4. Es necesario crear el usuario administrador que permitirá dar de alta los usarios del sistema. Ésto es posible con el siguiente comando y proporcionando la información solicitada:
+   ```
+   $ docker exec -it thoron python manage.py createsuperuser
+   
+   Nombre de usuario (leave blank to use 'root'): admin
+   Dirección de correo electrónico: admin@thorondor.net
+   Password: *****
+   Password (again): ***** 
+   Superuser created successfully.
+   ```
+5. Luego de loggear al usuario *admin*, es posible hacer uso de los servicios `/user` para dar de alta a los usuario requeridos. [**Ver Thoron**](1).
 
-La evaluación tendra la siguiente forma:
+6. A partir de este momento, cada usuario es capaz de administrar su propio grupo de vehículos.
 
-1. Back End: 35%
-2. Front End: 35%
-3. Estructura y legilibilidad del código, incluyendo el uso de buenas prácticas: 30%
-4. Bonus points: 20% extra (10% unit tests, 10% deployment en la nube).
 
-Suerte! 
+[1]: ./Thoron/README.md
+[3]: ./Meneldor/README.md
