@@ -11,7 +11,6 @@
 ## Dependencias
 
 ![1](https://img.shields.io/badge/Thoron-1.0-darkred.svg)
-![2](https://img.shields.io/badge/Gwaihir-1.0-darkred.svg)
 ![3](https://img.shields.io/badge/Meneldor-1.0-darkred.svg)
 
 ![](https://img.shields.io/badge/docker-*-blue.svg)
@@ -22,15 +21,12 @@
 
 Aplicación que permite a un grupo de usuarios administrar su correspondiente flotilla de vehículos, es decir, definir sus propiedades, incluida su posición.
 
-Está dividida en tres componentes principales:
+Está dividida en dos componentes principales:
 
 - [**Thoron**](1): REST API que proporciona los servicios necesarios para:
   - Manejo de sesión.
   - Administración de usuarios.
   - Administración de vehículos.
-- [**Gwaihir**](2): Aplicación web que permite interactuar visualmente con:
-  - Acceso de usuarios
-  - Administración de la flotilla propia del usuario.
 - [**Meneldor**](3): Base de datos que almacena la información requerida por el sistema
 
 ## Deploy
@@ -73,5 +69,4 @@ Está dividida en tres componentes principales:
 
 
 [1]: ./Thoron/README.md
-[2]: ./Gwaihir/README.md
 [3]: ./Meneldor/README.md
