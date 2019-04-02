@@ -11,7 +11,7 @@
 ## Dependencias
 
 ![1](https://img.shields.io/badge/Thoron-1.0-darkred.svg)
-![3](https://img.shields.io/badge/Meneldor-1.0-darkred.svg)
+![2](https://img.shields.io/badge/Meneldor-1.0-darkred.svg)
 
 ![](https://img.shields.io/badge/docker-*-blue.svg)
 ![](https://img.shields.io/badge/docker--compose-*-blue.svg)
@@ -27,7 +27,7 @@ Está dividida en dos componentes principales:
   - Manejo de sesión.
   - Administración de usuarios.
   - Administración de vehículos.
-- [**Meneldor**](3): Base de datos que almacena la información requerida por el sistema
+- [**Meneldor**](2): Base de datos que almacena la información requerida por el sistema
 
 ## Deploy
 
@@ -68,5 +68,5 @@ Está dividida en dos componentes principales:
 6. A partir de este momento, cada usuario es capaz de administrar su propio grupo de vehículos.
 
 
-[1]: ./Thoron/README.md
-[3]: ./Meneldor/README.md
+[1]: Thoron/README.md
+[2]: Meneldor/README.md
