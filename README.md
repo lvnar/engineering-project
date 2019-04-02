@@ -23,11 +23,11 @@ Aplicación que permite a un grupo de usuarios administrar su correspondiente fl
 
 Está dividida en dos componentes principales:
 
-- [**Thoron**](1): REST API que proporciona los servicios necesarios para:
+- [**Thoron**][1]: REST API que proporciona los servicios necesarios para:
   - Manejo de sesión.
   - Administración de usuarios.
   - Administración de vehículos.
-- [**Meneldor**](2): Base de datos que almacena la información requerida por el sistema
+- [**Meneldor**][2]: Base de datos que almacena la información requerida por el sistema
 
 ## Deploy
 
@@ -63,7 +63,7 @@ Está dividida en dos componentes principales:
    Password (again): ***** 
    Superuser created successfully.
    ```
-5. Luego de loggear al usuario *admin*, es posible hacer uso de los servicios `/user` para dar de alta a los usuario requeridos. [**Ver Thoron**](1).
+5. Luego de loggear al usuario *admin*, es posible hacer uso de los servicios `/user` para dar de alta a los usuario requeridos. [**Ver Thoron**][1].
 
 6. A partir de este momento, cada usuario es capaz de administrar su propio grupo de vehículos.
 
