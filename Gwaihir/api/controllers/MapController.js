@@ -15,7 +15,7 @@ module.exports = {
       };
       request(reqData, function (error, response, body) {
         if (error) {
-          sails.log.error(error);
+          sails.log.error(error|| response.statusCode !== 200);
           reject(error);
         } else {
           resolve(JSON.parse(body));
@@ -25,7 +25,7 @@ module.exports = {
       let data = [];
       for (let item in resp) {
         data.push({
-          id: resp[item].id,
+          plate: resp[item].number_plate,
           latitude: resp[item].last_position[0],
           longitude: resp[item].last_position[1]
         });
@@ -33,11 +33,15 @@ module.exports = {
       return res.view(
         'pages/map',
         {
-          username: req.session.username,
+          username: req.session.username || '',
           data: data,
         });
     }).catch(error => {
-      return res.view('pages/map');
+      return res.view('pages/map',
+      {
+        username: req.session.username || '',
+        data: [],
+      });
     });
   }
 };

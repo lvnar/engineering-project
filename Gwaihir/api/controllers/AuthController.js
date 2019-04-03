@@ -6,7 +6,7 @@ let host = process.env.THORON_ADDR;
 let requestPromise = function(payload) {
   return new Promise(function (resolve, reject) {
     request(payload, function (error, response, body) {
-      if (error) {
+      if (error || response.statusCode !== 200) {
         sails.log.error(error);
         reject(error);
       } else {

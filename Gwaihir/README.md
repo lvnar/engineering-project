@@ -1,26 +1,30 @@
-# app
+# **Gwaihir**
 
-a [Sails v1](https://sailsjs.com) application
+## Contenidos
 
+- [**Gwaihir**](#gwaihir)
+  - [Contenidos](#contenidos)
+  - [Dependencias](#dependencias)
+  - [Descripción](#descripci%C3%B3n)
+    - [Funcionalidad](#funcionalidad)
+      - [Autenticación](#autenticaci%C3%B3n)
+      - [Usuario](#usuario)
 
-### Links
+## Dependencias
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+![](https://img.shields.io/badge/alpine-3.9-orange.svg)
+![](https://img.shields.io/badge/node-8-grey.svg)
 
+## Descripción
 
-### Version info
+Aplicación web que permite el acceso de usuarios dados de alta para *administrar* (por ahora sólo vista) los vehículos de una flotilla propia.
 
-This app was originally generated on Tue Apr 02 2019 11:40:23 GMT-0600 (GMT-06:00) using Sails v1.1.0.
+### Funcionalidad
 
-<!-- Internally, Sails used [`sails-generate@1.16.6`](https://github.com/balderdashy/sails-generate/tree/v1.16.6/lib/core-generators/new). -->
+#### Autenticación
 
+La aplicación es capaz de permitir el acceso de usuarios mediante el uso de un nombre de usuario (*username*) y contraseña (*password*).
 
+#### Usuario
 
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
-
+El usuario tiene permitido ver las placas y la localización del vehículo, así como terminar su sesión en cualquier momento.
