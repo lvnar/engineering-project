@@ -19,8 +19,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
- '/': { view: 'pages/homepage' },
- '/map': { view: 'pages/map' },
+  '/': {
+      view: 'pages/homepage'
+    },
+  'POST /login': 'AuthController.login',
+  'GET /logout': 'AuthController.logout',
+  '/map': 'MapController.map'
 
 
   /***************************************************************************

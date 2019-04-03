@@ -22,6 +22,17 @@ services:
     tty: true
     restart: always
 
+  gwaihir:
+    container_name: gwaihir
+    build:
+      context: ./Gwaihir
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./Gwaihir:/usr/src/app
+    ports:
+      - "80:1337"
+    restart: always
+
   meneldor:
     container_name: meneldor
     image: postgres:11.2-alpine

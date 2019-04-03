@@ -17,6 +17,12 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  'AuthController': {
+    'login': true,
+    'logout': 'sessionToken'
+  },
+  'MapController': {
+    '*': 'sessionToken'
+  }
 
 };
