@@ -1,0 +1,33 @@
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="text-right-line p-r-25 p-t-25 p-b-25">
+      <a href="/logout" class="txt3">
+        Logout
+      </a>
+    </div>
+    <div class="wrap-login100 big-square">
+      <div class="login100-form validate-form p-l-55 p-r-55 p-t-178 centered">
+        <span class="login100-form-title">
+          Flota de <big> <%= username %> </big>
+        </span>
+        <ul class=""><%
+          _.each(data, function (item) {
+          %><li class="" data-id="<%= item.id %>">
+            Placa: <%=item.plate%> &nbsp
+            Lat: <%=item.latitude%> &nbsp;
+            Lng: <%=item.longitude%>
+          </li><% });
+         %></ul>
+        <div id="map"></div>
+        
+      </div>
+      <div class="p-t-25 pb-40">
+    </div>
+  </div>
+</div>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIkCW3bCtcNWcg-7fWQVVN8mkuQtIAGwk&callback=initMap">
+</script>
+

@@ -22,9 +22,26 @@ services:
     tty: true
     restart: always
 
+  gwaihir:
+    container_name: gwaihir
+    build:
+      context: ./Gwaihir
+      dockerfile: ./Dockerfile
+    environment:
+      THORON_ADDR: http://thoron:8000
+    volumes:
+      - ./Gwaihir:/usr/src/app
+    ports:
+      - "80:1337"
+    restart: always
+
   meneldor:
     container_name: meneldor
     image: postgres:11.2-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - "./Meneldor/postgres-data:/var/lib/postgresql/data"
     ports:

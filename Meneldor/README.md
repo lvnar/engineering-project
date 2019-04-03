@@ -17,8 +17,8 @@
 Contenedor de base de datos. La carpeta */postgres-data* se establece volúmen que permite hacer persistente la información almacenada.
 
 Las principales características del contenedor incluyen:
-- Sistema operativo [**Alpine 3.9**](1)
-- Base de datos [**Postgress 11.2**](2)
+- Sistema operativo [**Alpine 3.9**][1]
+- Base de datos [**Postgress 11.2**][2]
 - Parámetros configurables proporcionados mediante variables de entorno:
   - Usuario (`POSTGRES_USER`)
   - Contraseña (`POSTGRES_PASSWORD`)
