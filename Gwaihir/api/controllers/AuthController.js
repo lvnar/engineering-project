@@ -1,6 +1,7 @@
 'use strict';
 
-let request = require('request')
+let request = require('request');
+let host = process.env.THORON_ADDR;
 
 let requestPromise = function(payload) {
   return new Promise(function (resolve, reject) {
@@ -18,14 +19,14 @@ let requestPromise = function(payload) {
 module.exports = {
   login: function (req, res) {
     let reqData = {
-      url: sails.config.env.host + '/login/',
+      url: host + '/login/',
       method: 'POST',
       form: req.allParams()
     };
     return requestPromise(reqData).then(resp => {
       req.session.token = 'Token ' + resp.key;
       let reqData2 = {
-        url: sails.config.env.host + '/user/',
+        url: host + '/user/',
         method: 'GET',
         headers: {
           Authorization: req.session.token
@@ -33,7 +34,6 @@ module.exports = {
       };
       return requestPromise(reqData2);
     }).then(resp => {
-      //res.location('/map');
       req.session.username = resp.username;
       return res.redirect('/map');
     }).catch(error => {
@@ -42,7 +42,7 @@ module.exports = {
   },
   logout: function (req, res) {
     let reqData = {
-      url: sails.config.env.host + '/logout/',
+      url: host + '/logout/',
       method: 'POST',
       headers: {
         Authorization: req.session.token

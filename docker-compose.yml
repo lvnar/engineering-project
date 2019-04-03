@@ -27,6 +27,8 @@ services:
     build:
       context: ./Gwaihir
       dockerfile: ./Dockerfile
+    environment:
+      THORON_ADDR: http://thoron:8000
     volumes:
       - ./Gwaihir:/usr/src/app
     ports:

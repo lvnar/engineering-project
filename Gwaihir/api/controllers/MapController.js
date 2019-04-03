@@ -1,12 +1,13 @@
 'use strict';
 
 let request = require('request')
+let host = process.env.THORON_ADDR;
 
 module.exports = {
   map: function (req, res) {
     return new Promise(function (resolve, reject) {
       let reqData = {
-        url: sails.config.env.host + '/vehicles/',
+        url: host + '/vehicles/',
         headers: {
           Authorization: req.session.token
         },
