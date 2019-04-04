@@ -60,7 +60,6 @@ ROOT_URLCONF = 'thoron.urls'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-        #'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -68,6 +67,7 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'utils.handler.custom_handler',
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
     )
 }
 
@@ -105,6 +105,7 @@ DATABASES = {
         'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
         'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': (os.environ.get('DATABASE_PORT', 5432)),
         'NAME': os.environ.get('DATABASE_DB')
     }
 }

@@ -12,7 +12,7 @@ class VehicleViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, IsOwner)
     queryset = Vehicle.objects.all().order_by('-date_joined')
     serializer_class = VehicleSerializer
-    filterset_fields = ('is_active', 'owner__id')
+    filter_fields = ('is_active', 'owner__id')
 
     list_pattern = re.compile('^/vehicles/$')
 
