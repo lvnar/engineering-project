@@ -10,9 +10,10 @@ class UserViewSet(viewsets.ModelViewSet):
     API endpoint that allows users to be viewed or edited.
     """
     permission_classes = (permissions.IsAuthenticated, IsSuperUser)
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset = User.objects.all()
     serializer_class = UserSerializer
-    filterset_fields = ('is_active',)
+    filter_fields = ('is_active',)
+    ordering = ('-date_joined',)
     
     def destroy(self, request, *args, **kwargs):
         user = self.get_object()

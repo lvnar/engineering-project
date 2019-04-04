@@ -9,6 +9,8 @@ def custom_handler(exc, context):
     if response is not None:
         try:
             message = _(response.data['detail'])
+        except KeyError:
+            message = [_(response.data[i][0]) for i in response.data]
         except:
             message = _(response.status_text)
         return Response(
