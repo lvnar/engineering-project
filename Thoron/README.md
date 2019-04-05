@@ -130,12 +130,9 @@ Tienen por objetivo la administración de un grupo de vehículos. Este tipo de u
 
 Se ha desarrollado, en [**Postman**][5], la documentación detallada del API. [**Ver documentación completa**](https://documenter.getpostman.com/view/552873/S17xrkSb).
 
-Además, se implementaron pruebas unitarias  que pueden ser ejecutadas de forma manual. El botón de abajo permite importar la colección de peticiones (*Thoron*) y las variables de ambiente requeridas (*Thorondor*).
-
-De acuerdo a las variables iniciales, es posible alcanzar el servidor local o el servidor en el [**ambiente de pruebas**](../README.md#ambiente-de-pruebas).
-  
-  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d2e4e43cc100083d2f06#?env%5BThorondor%20EC2%5D=W3siZGVzY3JpcHRpb24iOnsiY29udGVudCI6IiIsInR5cGUiOiJ0ZXh0L3BsYWluIn0sInZhbHVlIjoiZWMyLTE4LTIyMC0yMC03MS51cy1lYXN0LTIuY29tcHV0ZS5hbWF6b25hd3MuY29tOjgwODAiLCJrZXkiOiJob3N0IiwiZW5hYmxlZCI6dHJ1ZX0seyJkZXNjcmlwdGlvbiI6eyJjb250ZW50IjoiIiwidHlwZSI6InRleHQvcGxhaW4ifSwidmFsdWUiOiJhZG1pbiIsImtleSI6InVzZXJuYW1lIiwiZW5hYmxlZCI6dHJ1ZX0seyJkZXNjcmlwdGlvbiI6eyJjb250ZW50IjoiIiwidHlwZSI6InRleHQvcGxhaW4ifSwidmFsdWUiOiI4Iiwia2V5IjoidXNlcl9pZHgiLCJlbmFibGVkIjp0cnVlfSx7ImRlc2NyaXB0aW9uIjp7ImNvbnRlbnQiOiIiLCJ0eXBlIjoidGV4dC9wbGFpbiJ9LCJ2YWx1ZSI6IjEiLCJrZXkiOiJ2ZWhpY2xlX2lkeCIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiI1N2M4MzA5Mzg2Zjc5YmQ3ZGQ2Njg2M2M1ZWM5MDNjZDNlZjA5NzMzIiwia2V5IjoiYWRtaW5fdG9rZW4iLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoiNTdjODMwOTM4NmY3OWJkN2RkNjY4NjNjNWVjOTAzY2QzZWYwOTczMyIsImtleSI6InRva2VuIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6InVzZXI2Iiwia2V5IjoibmV3X3VzZXIiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjo3LCJrZXkiOiJ1c2VyX2lkIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IjBlMmUxMmY5MmVmMDQwMTZkZDU4YTA2NGZkZjkwNzkxYTUzZDNlNTUiLCJrZXkiOiJ1c2VyX3Rva2VuIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IkNBUjA3MDAxIiwia2V5IjoibmV3X3ZlaGljbGUiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjo1LCJrZXkiOiJ2ZWhpY2xlX2lkIiwiZW5hYmxlZCI6dHJ1ZX1d)
-
+Además, se implementaron pruebas unitarias que pueden ejecutarse de forma secuencial en [**Postman Runner**][6]. Sólo se requiere un *environment* con la variable *host*, cuyo valor apunte al servicio al que queremos acceder, sea localmente o el [**ambiente de pruebas**](../README.md#ambiente-de-pruebas) y con el formato ***<host>:<puerto>***.
+    
+    [![Ejecutar pruebas en Postman](https://run.pstmn.io/button.svg)][7]
 
 
 
@@ -144,5 +141,6 @@ De acuerdo a las variables iniciales, es posible alcanzar el servidor local o el
 [3]: https://documenter.getpostman.com/view/552873/S17xrkHt
 [4]: https://medium.com/backticks-tildes/restful-api-design-put-vs-patch-4a061aa3ed0b
 [5]: https://www.getpostman.com/
-[6]: https://aws.amazon.com/es/
+[6]: https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/
+[7]: https://app.getpostman.com/run-collection/d2e4e43cc100083d2f06#?env%5BThorondor%20EC2%5D=W3siZGVzY3JpcHRpb24iOnsiY29udGVudCI6IiIsInR5cGUiOiJ0ZXh0L3BsYWluIn0sInZhbHVlIjoiZWMyLTE4LTIyMC0yMC03MS51cy1lYXN0LTIuY29tcHV0ZS5hbWF6b25hd3MuY29tOjgwODAiLCJrZXkiOiJob3N0IiwiZW5hYmxlZCI6dHJ1ZX0seyJkZXNjcmlwdGlvbiI6eyJjb250ZW50IjoiIiwidHlwZSI6InRleHQvcGxhaW4ifSwidmFsdWUiOiJhZG1pbiIsImtleSI6InVzZXJuYW1lIiwiZW5hYmxlZCI6dHJ1ZX0seyJkZXNjcmlwdGlvbiI6eyJjb250ZW50IjoiIiwidHlwZSI6InRleHQvcGxhaW4ifSwidmFsdWUiOiI4Iiwia2V5IjoidXNlcl9pZHgiLCJlbmFibGVkIjp0cnVlfSx7ImRlc2NyaXB0aW9uIjp7ImNvbnRlbnQiOiIiLCJ0eXBlIjoidGV4dC9wbGFpbiJ9LCJ2YWx1ZSI6IjEiLCJrZXkiOiJ2ZWhpY2xlX2lkeCIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiI1N2M4MzA5Mzg2Zjc5YmQ3ZGQ2Njg2M2M1ZWM5MDNjZDNlZjA5NzMzIiwia2V5IjoiYWRtaW5fdG9rZW4iLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoiNTdjODMwOTM4NmY3OWJkN2RkNjY4NjNjNWVjOTAzY2QzZWYwOTczMyIsImtleSI6InRva2VuIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6InVzZXI2Iiwia2V5IjoibmV3X3VzZXIiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjo3LCJrZXkiOiJ1c2VyX2lkIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IjBlMmUxMmY5MmVmMDQwMTZkZDU4YTA2NGZkZjkwNzkxYTUzZDNlNTUiLCJrZXkiOiJ1c2VyX3Rva2VuIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IkNBUjA3MDAxIiwia2V5IjoibmV3X3ZlaGljbGUiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjo1LCJrZXkiOiJ2ZWhpY2xlX2lkIiwiZW5hYmxlZCI6dHJ1ZX1d
 
