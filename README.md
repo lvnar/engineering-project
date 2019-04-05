@@ -75,7 +75,7 @@ Está dividida en tres componentes principales:
 
 ## Ambiente de pruebas
 
-Para fines de testeo de la aplicación, se dieron de alta los tres servicios en una instancia de [**AWS**][6]. Éste puede ser encontrado en la dirección [**ec2-18-220-20-71.us-east-2.compute.amazonaws.com**](http://ec2-18-220-20-71.us-east-2.compute.amazonaws.com).
+Para fines de testeo de la aplicación, se dieron de alta los tres servicios en una instancia de [**AWS**][4]. Éste puede ser encontrado en la dirección [**ec2-18-220-20-71.us-east-2.compute.amazonaws.com**](http://ec2-18-220-20-71.us-east-2.compute.amazonaws.com).
 
 ### Servicios
 
@@ -99,3 +99,4 @@ Ha sido dado de alta un usuario administrador y uno regular para permitir el acc
 [1]: Thoron/README.md
 [2]: Meneldor/README.md
 [3]: Gwaihir/README.md
+[4]: https://aws.amazon.com/es/
